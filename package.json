@@ -3,7 +3,7 @@
     "typescript": "^5.7.3",
     "type":"module",
     "publishConfig": {"access": "public"},
-    "bin": "milestone2"
+    "bin": "milestone3"
 
 
 
