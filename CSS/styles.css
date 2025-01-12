@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #edeef0;
+    color: #080808;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    text-align: center;
+}
+
+h1 {
+    color: #080808;
+    font-weight: bold;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+form, #resumePreview {
+    width: 100%;
+    max-width: 900px;
+    background-color: #adbfc4;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+fieldset {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #adbfc4;
+    border-radius: 5px;
+    background-color: #f0eeed;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #080808;
+}
+
+input, textarea, button {
+    margin: 5px 0;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #e7e6e6;
+    color: #0e0d0d;
+    border: 1px solid #7ddacd;
+    border-radius: 5px;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #bbb;
+}
+
+button {
+    background-color: #8ba0aa;
+    color: rgb#080808;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #79918d;
+}
+
+#resumePreview {
+    margin-top: 50px;
+}
+
+#personalInfo, #educationInfo, #skillsInfo, #workExperienceInfo {
+    margin-bottom: 20px;
+}
+
+#profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    display: block;
+    margin: 10px auto;
+    object-fit: cover;
+}
+
+h3 {
+    color: #080808;
+}
+
+p, ul {
+    color: #080808;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    margin: 5px 0;
+}

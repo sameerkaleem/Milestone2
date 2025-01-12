@@ -1,0 +1,6 @@
+{
+    "rewrites": [
+      { "source": "/", "destination": "/Html/dynamic-resume-builder.html"}
+    ]
+  }
+  

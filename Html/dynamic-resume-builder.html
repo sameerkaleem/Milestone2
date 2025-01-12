@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Resume Builder</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="\CSS\styles.css" />
+  </head>
+  <body>
+    <div>
+      <h1>
+        <b><u>Dynamic Resume Builder</u></b>
+      </h1>
+
+      <!-- Input Form -->
+      <form id="resumeForm">
+        <fieldset>
+          <legend>Personal Information</legend>
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+            value="Sameer Kaleem"
+            required
+          />
+          <label for="phone">Phone Number:</label>
+          <input
+            type="text"
+            id="phone"
+            placeholder="Enter your phone number"
+            value="+92-313-2254939"
+            required
+          />
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            value="sameerkaleem@gmail.com"
+            required
+          />
+          <label for="profilePicture">Profile Picture:</label>
+          <input type="file" id="profilePicture" accept="image/*" />
+        </fieldset>
+
+        <fieldset>
+          <legend>Education</legend>
+          <textarea
+            id="education"
+            rows="3"
+            placeholder="Enter your education details"
+          >
+Intermediate</textarea
+          >
+        </fieldset>
+
+        <fieldset>
+          <legend>Skills</legend>
+          <textarea
+            id="skills"
+            rows="3"
+            placeholder="Enter your skills (comma-separated)"
+          >
+JavaScript, HTML, CSS, React</textarea
+          >
+        </fieldset>
+
+        <fieldset>
+          <legend>Work Experience</legend>
+          <textarea
+            id="workExperience"
+            rows="3"
+            placeholder="Enter your work experience"
+          >
+Developer </textarea
+          >
+        </fieldset>
+
+        <button type="button" id="updateResume">Update Resume</button>
+      </form>
+
+      <!-- Resume Preview -->
+      <div id="resumePreview">
+        <h2>Preview</h2>
+        <div id="personalInfo">
+          <h3><u>Personal Information:</u></h3>
+          <img
+            src="\image\Sameer_kaleem.png"
+            id="profile-pic"
+            alt="Profile Picture"
+          />
+          <p><b>Name:</b> <span id="previewName">Sameer Kaleem</span></p>
+          <p>
+            <b>Phone Number:</b> <span id="previewPhone">+92-3132254939</span>
+          </p>
+          <p>
+            <b>Email:</b> <span id="previewEmail">sameerkaleem@gmail.com</span>
+          </p>
+        </div>
+        <div id="educationInfo">
+          <h3><u>Education:</u></h3>
+          <p id="previewEducation">Intermediate</p>
+        </div>
+        <div id="skillsInfo">
+          <h3><u>Skills:</u></h3>
+          <ul id="previewSkills">
+            <li>JavaScript</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>React</li>
+          </ul>
+        </div>
+        <div id="workExperienceInfo">
+          <h3><u>Work Experience:</u></h3>
+          <p id="previewWorkExperience">
+            1 Year experience of web developer with a focus on front-end
+            technologies.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // TypeScript-like logic for dynamic resume generation
+      document.getElementById("updateResume").addEventListener("click", () => {
+        // Get user input values
+        const name = document.getElementById("name").value;
+        const phone = document.getElementById("phone").value;
+        const email = document.getElementById("email").value;
+        const education = document.getElementById("education").value;
+        const skills = document
+          .getElementById("skills")
+          .value.split(",")
+          .map((skill) => skill.trim());
+        const workExperience = document.getElementById("workExperience").value;
+
+        // Update the resume preview
+        document.getElementById("previewName").textContent = name;
+        document.getElementById("previewPhone").textContent = phone;
+        document.getElementById("previewEmail").textContent = email;
+        document.getElementById("previewEducation").textContent = education;
+        document.getElementById("previewWorkExperience").textContent =
+          workExperience;
+
+        // Update skills list
+        const skillsList = document.getElementById("previewSkills");
+        skillsList.innerHTML = skills
+          .map((skill) => `<li>${skill}</li>`)
+          .join("");
+      });
+
+      // Handle profile picture upload and preview
+      document
+        .getElementById("profilePicture")
+        .addEventListener("change", function (event) {
+          const file = event.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              document.getElementById("profile-pic").src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+    </script>
+  </body>
+</html>
